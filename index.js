@@ -32,10 +32,12 @@ numButtons.forEach(button => {
 /**Equal button logic */
 function solve() {
     finalExpression = String(screenData.value);
-    result = eval(finalExpression);
-    screenData.value = result;
+    keyResult = eval(finalExpression);
+    //screenData.value = result;
+    screenData.value = keyResult;
     screenData.classList.add("result");
-    console.log(result);
+    console.log(keyResult);
+    removeOrange();
 };
 equalButton.addEventListener("click", solve);
 /**End of equal button logic */

@@ -3,7 +3,10 @@
 - Letters
 - Division by zero
 - Any otherwise invalid expressions (i.e; "4++--/*-=")
-- Any operators not included on the calculator
+
+## Operators that are not on the calculator but are permitted:
+Double asterisks (**) are permitted for exponentiation 
+The modulo operator (%) is permitted but only available from the keyboard
 
 ## You may enter input by:
 - Using the keyboard while input box is in focus

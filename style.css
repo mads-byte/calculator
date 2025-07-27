@@ -36,10 +36,10 @@ button:active {
 
 #screen {
     padding-top: 5vh;
-    width: 98.5%;
+    width: 95%;
     height: 50%;
     text-align: right;
-    font-size: 5vw;
+    font-size: 4.8vw;
     border-style: none;
     background-color: rgb(193, 223, 249)
 }
@@ -52,6 +52,7 @@ button:active {
     gap: 0.5% 0.5%;
     display: grid;
     background-color: rgb(193, 223, 249);
+    box-shadow: 0 10px 40px 0 rgb(19, 72, 145);
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
@@ -94,7 +95,7 @@ input:focus {
 
     #screen {
         padding-top: 6%;
-        width: 99.4%;
+        width: 95%;
         font-size: 10vw;
     }
 }
@@ -107,7 +108,7 @@ input:focus {
 
     #screen {
         padding-top: 60px;
-        width: 99.4%;
+        width: 95%;
         font-size: 10vw;
     }
 }

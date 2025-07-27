@@ -36,7 +36,7 @@ function solve() {
         finalExpression = String(screenData.value);
         keyResult = eval(finalExpression);
         if (keyResult == Infinity) {                        //eval() returns infinity to division by zero so this responds to it
-            screenData.value = "";                          //Resets input value to zero     
+            screenData.value = "DivisionByZero";            //Displays Error in input
             alert("Division by zero not permitted");        //Warns user not to divide by zero
             keyResult = "";
         }

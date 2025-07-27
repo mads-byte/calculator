@@ -5,8 +5,9 @@
 - Any otherwise invalid expressions (i.e; "4++--/*-=")
 
 ## Operators that are not on the calculator but are permitted:
-Double asterisks (**) are permitted for exponentiation 
-The modulo operator (%) is permitted but only available from the keyboard
+- Double asterisks (**) are permitted for exponentiation 
+- The modulo operator (%) is permitted but only available from the keyboard
+- Parentheses are permitted but only available from the keyboard
 
 ## You may enter input by:
 - Using the keyboard while input box is in focus

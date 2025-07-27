@@ -6,11 +6,12 @@ const clearButton = document.getElementById("clear")
 const activeElement = document.activeElement;
 /** End of HTML Elements */
 
+/** Varibles/Data Structures that need to accessed globally */
 let expression = [];
 let finalExpression;
 let result;
 let keyResult;
-
+/** End of variables/data structures that need to be accessed globally*/
 
 /**Logic for all calculator buttons (Store and Display values) */
 numButtons.forEach(button => {
@@ -18,10 +19,10 @@ numButtons.forEach(button => {
         let value = button.textContent;
         screenData.value += value;
         console.log(value);
-        expression.push(value);
-        finalExpression = expression.join("");
-        console.log(finalExpression);
-        button.blur();
+        expression.push(value);                 //pushes each value to an array
+        finalExpression = expression.join("");  //joins all values together with no space in between
+        console.log(finalExpression);           //logs the newly joined array
+        button.blur();                          //takes button out of focus immediately
         screenData.classList.remove("result");
     };
     button.addEventListener("click", appendNum);
@@ -29,18 +30,32 @@ numButtons.forEach(button => {
 /**End of logic for all calculator buttons */
 
 
-/**Equal button logic */
+/**Evaluates User input */
 function solve() {
-    finalExpression = String(screenData.value);
-    keyResult = eval(finalExpression);
-    //screenData.value = result;
-    screenData.value = keyResult;
-    screenData.classList.add("result");
-    console.log(keyResult);
-    removeOrange();
+    try {
+        finalExpression = String(screenData.value);
+        keyResult = eval(finalExpression);
+        if (keyResult == Infinity) {                        //eval() returns infinity to division by zero so this responds to it
+            screenData.value = "";                          //Resets input value to zero     
+            alert("Division by zero not permitted");        //Warns user not to divide by zero
+            keyResult = "";
+        }
+        else {
+            screenData.value = keyResult;
+            screenData.classList.add("result");
+            console.log(keyResult);
+            removeOrange();
+        }
+    } catch (error) {                                       //catches any and all errors other than division by zero
+        console.log(error);
+        screenData.value = error.name;                      // displays the name of the error to the user
+        alert("Please only enter numbers and operators");
+    }
+
 };
+
 equalButton.addEventListener("click", solve);
-/**End of equal button logic */
+/**End of logic for evaluating user input*/
 
 /**Clear button logic */
 clearButton.addEventListener("click", () => {
@@ -51,15 +66,10 @@ clearButton.addEventListener("click", () => {
 
 /**Logic for displaying results when user presses Enter/Return key */
 screenData.addEventListener("keydown", (event) => {
-
     if (event.key === "Enter") {
-        keyResult = eval(screenData.value);
-        screenData.classList.add("result");
-        screenData.value = keyResult;
-    };
-
-
-})
+        solve();
+    }
+});
 /** End of logic for Enter/Return key */
 
 
@@ -86,6 +96,7 @@ screenData.addEventListener("input", () => {
     removeOrange();
 });
 /**End of logic for removing orange text color */
+
 
 
 
